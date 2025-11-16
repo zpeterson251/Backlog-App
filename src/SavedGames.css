@@ -1,0 +1,419 @@
+.saved-games-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    min-height: 100vh;
+}
+
+.status-tabs {
+    display: flex;
+    justify-content: left;
+    gap: 12px;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.status-tab {
+    width: 80px;
+    padding: 8px 16px;
+    background-color: #ddd;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.status-tab:hover:not(.active),
+.status-tab.active {
+    color: #fff;
+}
+
+.status-tab.active:hover {
+    background-color: #4aa8ff;
+}
+
+.status-tab.Backlog:hover:not(.active),
+.status-tab.Backlog.active {
+    background-color: #ffa726;
+}
+
+.status-tab.Playing:hover:not(.active),
+.status-tab.Playing.active {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.status-tab.Finished:hover:not(.active),
+.status-tab.Finished.active {
+    background-color: #4caf50;
+}
+
+.status-tab.Dropped:hover:not(.active),
+.status-tab.Dropped.active {
+    background-color: #ff4d4d;
+}
+
+.status-tab.Wishlist:hover:not(.active),
+.status-tab.Wishlist.active {
+    background-color: #a200ff;
+}
+
+.status-tab.All:hover:not(.active),
+.status-tab.All.active {
+    background-color: #4aa8ff;
+}
+
+.status-tab.NotReplayed:hover:not(.active),
+.status-tab.NotReplayed.active {
+  background-color: #110866;
+}
+
+.status-tab.Replaying:hover:not(.active),
+.status-tab.Replaying.active {
+  background-color: #6e6d01;
+}
+
+.status-tab.Replayed:hover:not(.active),
+.status-tab.Replayed.active {
+  background-color: #043806;
+}
+
+.saved-games-header {
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+  }  
+
+.sort-button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #4aa8ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.sort-button:hover {
+    background-color: #2c8be6;
+}
+
+.sort-modal {
+    position: fixed;
+    width: 300px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.sort-modal h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.sort-modal select {
+    width: 100%;
+    padding: 8px;
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-family: inherit;
+}
+
+.sort-modal select:focus {
+    outline: none;
+    border-color: #4aa8ff;
+}
+
+.sort-modal button {
+    padding: 8px 12px;
+    background-color: #4aa8ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sort-modal button:hover {
+    background-color: #2c8be6;
+}
+
+.saved-games-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.saved-games-body {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+  
+.game-list-section {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.saved-games-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 50px;
+    column-gap: 20px;
+    flex-grow: 1;
+    transition: all 0.3s ease;
+}
+
+.saved-games-grid.with-sidebar {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.group-by-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.group-by-selection {
+    width: 100%;
+    border-top: 1px solid #444;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-by-selection h2 {
+    color: #ddd;
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.saved-game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #1e1e1e;
+    color: white;
+}
+
+.saved-game-card.selected {
+    box-shadow: 0 0 12px rgba(74, 168, 255, 0.5);
+}
+
+.saved-game-card:hover {
+    transform: translateY(-2px);
+}
+
+.saved-game-card p {
+    margin: 4px 0;
+    font-size: 0.95em;
+}
+
+.saved-game-card button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #4aa8ff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.saved-game-card button:hover {
+    background-color: #2c8be6;
+}
+
+.saved-game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.image-wrapper:hover .card-title {
+    opacity: 1;
+}
+
+.card-title {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    margin: 0;
+    padding: 4px 8px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+    z-index: 2;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.game-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-details-sidebar {
+    width: 400px;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.sidebar-cover {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.empty-sidebar {
+    font-style: italic;
+    color: #aaa;
+}
+
+.game-details-sidebar::-webkit-scrollbar {
+    width: 12px;
+}
+
+.game-details-sidebar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 6px;
+}
+
+.game-details-sidebar::-webkit-scrollbar-thumb {
+    background-color: #4aa8ff;
+    border-radius: 6px;
+    border: 2px solid #1a1a1a;
+}
+
+.game-details-sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #2c8be6;
+}
+
+.saved-game-card.status-Backlog {
+    border: 1px solid #ffa726;
+}
+
+.saved-game-card.status-Playing {
+    border: 1px solid #ffcc00;
+}
+
+.saved-game-card.status-Finished {
+    border: 1px solid #4caf50;
+}
+
+.saved-game-card.status-Dropped {
+    border: 1px solid #ff4d4d;
+}
+
+.saved-game-card.status-Wishlist {
+    border: 1px solid #a200ff;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+}
+
+.dot-Backlog {
+    background-color: #ffa726;
+}
+.dot-Playing {
+    background-color: #ffcc00;
+}
+.dot-Finished {
+    background-color: #4caf50;
+}
+.dot-Dropped {
+    background-color: #ff4d4d;
+}
+.dot-Wishlist {
+    background-color: #a200ff;
+}
+.dot-NotReplaying {
+    background-color: #110866;
+}
+  
+.dot-Replaying {
+    background-color: #6e6d01;
+}
+  
+.dot-Replayed {
+    background-color: #043806;
+}
+
+.replay-label {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 0.75em;
+    border-radius: 12px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+  
+.replay-label.notreplaying {
+    background-color: #666;
+    color: white;
+}
+  
+.replay-label.replaying {
+    background-color: #4aa8ff;
+    color: white;
+}
+  
+.replay-label.replayed {
+    background-color: #4caf50;
+    color: white;
+}
+  

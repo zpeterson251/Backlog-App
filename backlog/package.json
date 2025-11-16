@@ -1,0 +1,34 @@
+{
+  "name": "backlog",
+  "version": "1.0.0",
+  "description": "A project to manage and track saved games.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/backlog.git"
+  },
+  "keywords": [
+    "games",
+    "tracker",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "react-modal": "^3.14.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.27.1"
+  },
+  "homepage": "https://yourusername.github.io/backlog"
+}
